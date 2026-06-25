@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "python", 
+    "python.analysis.extraPaths": [
+        "./"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+}

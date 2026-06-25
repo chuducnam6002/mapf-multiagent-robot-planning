@@ -3,7 +3,7 @@ import numpy as np
 import yaml
 
 def get_scenario(filename: str) -> tuple[np.ndarray, list[tuple[int, int]], list[tuple[int, int]]]:
-    with open(filename, 'r', encoding='utf8') as filestream:
+    with open(filename, 'r') as filestream:
         scenario = yaml.safe_load(filestream)
     # pylint: disable=redefined-outer-name
     grid = np.array(scenario['grid'])
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     from .visualizer import Visualizer
     from . import pathfinding
     grid, goals, starts = get_scenario(
-        'multiagent_planner/scenarios/scenario5.yaml')
+        'dev/multiagent_planner/scenarios/scenario5.yaml')
     
     paths = pathfinding.mapf1(grid, starts, goals, maxiter=100, max_time=40)
     collisions = pathfinding.find_all_collisions(paths)
